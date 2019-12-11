@@ -33,6 +33,10 @@ cd fluentbit
 echo "aguarde... processando (FluentBit - 4/4)"
 podstatus
 
+export HOST_GRAYLOG=$(microk8s.kubectl get svc -n graylog graylog-web -o jsonpath='{.spec.clusterIP}')
+echo -e "\033[01;32mENDEREÇO DE ACESSO AO GRAYLOG:  $HOST_GRAYLOG:9000"
+echo
+sleep 3
 
 
 
