@@ -1,26 +1,63 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: v1
+kind: PersistentVolume
 metadata:
-  name: mongo-deploy
+ name: mongo-pv
+ namespace: graylog
+ labels:
+  type: local
+spec:
+ storageClassName: manual
+ capacity:
+  storage: 5Gi
+ accessModes:
+  - ReadWriteOnce
+ hostPath:
+  path: "/mnt/mongo_data"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+ name: mongo-pv-claim
+ namespace: graylog
+spec:
+ storageClassName: manual
+ accessModes:
+  - ReadWriteOnce
+ resources:
+  requests:
+   storage: 5Gi
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: mongo
   namespace: graylog
   labels:
-    service: mongo-deploy
+    service: mongo
 spec:
   replicas: 1
+  serviceName: "mongo"
   selector:
     matchLabels: 
-      service: mongo-deploy
+      service: mongo
   template:
     metadata:
       labels:
-        service: mongo-deploy
-    spec:
+        service: mongo
+    spec:      
       containers:
       - name: mongodb
         image: mongo:3
         ports:
         - containerPort: 27017
-
+          name: mongodb
+        volumeMounts:
+        - name: mongo-pv-storage
+          mountPath: /data/db
+      volumes:
+      - name: mongo-pv-storage
+        persistentVolumeClaim:
+         claimName: mongo-pv-claim
 ---
 apiVersion: v1
 kind: Service
@@ -29,7 +66,7 @@ metadata:
   namespace: graylog
 spec:
   selector:
-    service: mongo-deploy
+    service: mongo
   ports:
   - name: "27017"
     port: 27017
