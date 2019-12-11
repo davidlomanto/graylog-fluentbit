@@ -73,6 +73,7 @@ c. ALERT:
     c15. Preencher todos os campos de acordo com o que for pedido. Clicar em Done.
     
  d. VIEWS:
+ 
     d1. Clicar em *Views-> Create New*;
     d2. Selecionar a stream do item b no campo *Select streams*;
     d3. No lado esquerdo, em *Fields*, clicar em *pod_name* e selecionar *Agregate*;
