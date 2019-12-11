@@ -53,7 +53,7 @@ b. STREAMS:
     b4. Em *Select an input*, selecionar o input criado no item a.;
     b5. Clicar em *Add stream rule* e configurar as rules que você deseja para só aparecer log com essa regra;
     b6. Clicar em *"Manage Alert"*.
-  
+
 c. ALERT:
 
     c1. Clicar em "*Event Definitions*";
@@ -71,8 +71,21 @@ c. ALERT:
     c13. Colocar título e descrição;
     c14. Em *Notification Type*, Selecionar Email;
     c15. Preencher todos os campos de acordo com o que for pedido. Clicar em Done.
+    
+ d. VIEWS:
+    d1. Clicar em *Views-> Create New*;
+    d2. Selecionar a stream do item b no campo *Select streams*;
+    d3. No lado esquerdo, em *Fields*, clicar em *pod_name* e selecionar *Agregate*;
+    d4. No quadro gerado, clicar na "seta pra baixo" no canto superior direito e selecionar *edit*;
+    d5. Em *Visualization type*, selecione *Pie Chart*;
+    d6. Clique em *"Save"*;
+    d7. No lado esquerdo, em *Fields*, clicar em *pod_name* novamente e selecionar *Agregate*;
+    d8. No Quadro *Message Count*, clicar na "seta pra baixo" no canto superior direito e selecionar *edit*;
+    d9. Em *columns*, selecionar *pod_name*;
+    d10. Clique em *"Save"*;
+    d11. Por fim, clique na parte de cima no simbolo ">"(play) para carregar as informações.    
   
-d. Pronto! estará configurado tudo necessário.
+e. Pronto! estará configurado tudo necessário.
 
 
   
