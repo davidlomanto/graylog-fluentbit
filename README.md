@@ -36,6 +36,7 @@ h. Pronto! você vai tar logado no Graylog!
 **Configurando o Graylog:**
 
 a. INPUTS:
+    Inputs são as entradas de LOG para o Graylog receber.
 
     a1. Ir em *System -> Inputs*;
     a2. Em *"Select Input"*, escolha GELF TCP;
@@ -45,7 +46,8 @@ a. INPUTS:
     a5. Desça e clique em *Save*;
     a6. Pronto! O input vai começar sozinho segundo informação na tela. Caso não dê start, clique em *"Start Input"*.
   
-b. STREAMS:
+b. STREAMS:    
+   O papel da stream é filtrar de todas as mensagens de log que chegam no input, as da(s) aplicação(ões) escolhida(s), tendo assim somente as informações de interesse.
 
     b1. Ir em *Streams*;
     b2. Colocar titulo e descrição;
@@ -55,6 +57,8 @@ b. STREAMS:
     b6. Clicar em *"Manage Alert"*.
 
 c. ALERT:
+   O Alerta criado é baseado na quantidade de vezes que um endpoint foi alcançado. Isso tudo é especificado do c5 ao c10.
+   Para essa configuração, é disparado um email.
 
     c1. Clicar em "*Event Definitions*";
     c2. Clicar em *"Create Event Definition";
@@ -73,6 +77,10 @@ c. ALERT:
     c15. Preencher todos os campos de acordo com o que for pedido. Clicar em Done.
     
  d. VIEWS:
+    A view mostra as informações de algum fluxo de LOG. Para essa configuração, foi adicionado 3 gŕaficos:
+    1) Em "Pizza", para mostrar a quantidade de cada endpoint da aplicação;
+    2) Em números em valores absolutos do item 1;
+    3) Em barra dos valores absolutos do item 1.
  
     d1. Clicar em *Views-> Create New*;
     d2. Selecionar a stream do item b no campo *Select streams*;
@@ -89,7 +97,6 @@ c. ALERT:
 e. Pronto! estará configurado tudo necessário.
 
 
-  
   
 
 
