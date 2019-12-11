@@ -7,8 +7,10 @@ Passo a passo de como subir o graylog, fluentbit e o mongodb. Depois como config
 **Instruções(passo a passo):**
 
 a. Abrir o arquivo values.yaml;
+
   Configurar values.yaml:
-    a1. Alterar campo *rootEmail*;
+  
+    a1. Alterar campo *rootEmail*;    
     a2. Alterar em elasticsearch o campo hosts para apontar para o elasticsearch instalado;
     a3. Alterar em transportEmail os campos:
       a31. *enable: true*;
@@ -26,6 +28,7 @@ g. Colocar senha: "adminadmin123456789" (isso pode ser alterado no values.yaml);
 h. Pronto! você vai tar logado no Graylog!
 
 **Configurando o Graylog:**
+
 a. INPUTS:
   a1. Ir em *System -> Inputs*;
   a2. Em *"Select Input"*, escolha GELF TCP;
@@ -60,7 +63,7 @@ c. ALERT:
   c14. Em *Notification Type*, Selecionar Email;
   c15. Preencher todos os campos de acordo com o que for pedido. Clicar em Done.
   
-d. Pronto! estará configurado tudo necessário.  
+d. Pronto! estará configurado tudo necessário.
 
 
   
